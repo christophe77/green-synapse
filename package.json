@@ -1,0 +1,13 @@
+{
+	"name": "green-synapse",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/christophe77/green-synapse",
+	"author": "christophe77 <chrisb@gmx.fr>",
+	"license": "MIT",
+	"scripts": {
+		"install:project": "cd ./back && npm install && cd ../front && npm install",
+		"dev:front": "cd ./front && vite",
+		"build:front": "cd ./front && tsc -b && vite build"
+	}
+}

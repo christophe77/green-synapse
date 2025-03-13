@@ -1,0 +1,9 @@
+{
+	"api": {
+		"url": "http://localhost:5000",
+		"model": "Nous-Hermes-2-Mistral-7B-DPO.Q4_0.gguf"
+	},
+	"localDocs": {
+		"folder": "C:\\Users\\Christophe\\AppData\\Local\\localDocs"
+	}
+}
