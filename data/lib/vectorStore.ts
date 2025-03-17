@@ -29,7 +29,7 @@ class VectorStore {
 
 		// Vérifier si la dimension du vecteur correspond à celle attendue
 		if (vector.length !== this.dimension) {
-			throw new Error(
+			console.log(
 				`Le vecteur doit avoir une dimension de ${this.dimension}, mais il a une dimension de ${vector.length}.`,
 			);
 		}
@@ -47,7 +47,7 @@ class VectorStore {
 		}
 		// Vérification de la dimension du vecteur
 		if (vector.length !== this.dimension) {
-			throw new Error(
+			console.log(
 				`Le vecteur doit avoir une dimension de ${this.dimension}, mais il a une dimension de ${vector.length}.`,
 			);
 		}
@@ -76,42 +76,42 @@ class VectorStore {
 				"Le fichier d'index n'existe pas. Création d'un nouvel index.",
 			);
 			writeFileSync(filePath, JSON.stringify({ vectors: [], ids: [] }));
-			return;
 		}
 
 		const data = JSON.parse(readFileSync(filePath, 'utf8'));
+
+		if (!Array.isArray(data.vectors) || !Array.isArray(data.ids)) {
+			console.log("Le fichier d'index est corrompu. 'vectors' et 'ids' doivent être des tableaux.");
+			return;
+		}
+
 		this.vectors = data.vectors;
 		this.ids = data.ids;
-		if (!Array.isArray(this.vectors)) {
-			throw new Error(
-				"Le fichier d'index est corrompu, les vecteurs doivent être un tableau.",
-			);
+
+		// Vérifie si chaque vecteur est un tableau de nombres
+		if (!this.vectors.every(vector => Array.isArray(vector) && vector.every(value => typeof value === 'number'))) {
+			console.log("Le fichier d'index est corrompu, les vecteurs doivent être un tableau de tableaux de nombres.");
+			return;
 		}
 
-		if (this.vectors.length > 0 && !Array.isArray(this.vectors[0])) {
-			const vectorLength = this.dimension;
-			const flattened = this.vectors;
-			this.vectors = [];
-
-			for (let i = 0; i < flattened.length; i += vectorLength) {
-				const vector = flattened.slice(i, i + vectorLength);
-				this.vectors.push(vector);
-			}
-		}
-
-		if (!this.vectors.every(Array.isArray)) {
-			throw new Error('Les vecteurs doivent être un tableau de tableaux.');
-		}
-
-		const flatVectors = this.vectors.flat();
-
-		if (flatVectors.length > 0) {
+		if (this.vectors.length > 0) {
 			this.index = new Faiss.IndexFlatL2(this.dimension);
-			this.index.add(new Float32Array(flatVectors));
+
+			try {
+				// On insère chaque vecteur individuellement
+				for (const vector of this.vectors) {
+					// const flatVector = new Float32Array(vector);
+					this.index.add(vector);
+				}
+			} catch (error) {
+				console.log("Erreur lors de l'ajout des vecteurs à FAISS :", error);
+			}
 		} else {
-			console.log("Il n'y a pas de vecteurs valides à ajouter à l'index.");
+			console.log("Aucun vecteur trouvé dans le fichier d'index.");
 		}
 	}
+
+
 }
 
 export { VectorStore };

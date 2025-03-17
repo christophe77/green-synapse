@@ -17,6 +17,7 @@
 		"start:api": "npx tsx api/index.ts",
 		"start:syn": "cd web-components/syn && npm run dev",
 		"start:data": "npx tsx data/index.ts",
+		"start": "concurrently --kill-others \"npm run start:data\" \"npm run start:api\" \"npm run start:syn\"",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
@@ -26,6 +27,7 @@
 		"@types/jsdom": "^21.1.7",
 		"@types/node": "^22.13.10",
 		"@types/xml2js": "^0.4.14",
+		"concurrently": "^9.1.2",
 		"eslint": "^8.0.0",
 		"prettier": "^2.0.0",
 		"ts-node": "^10.9.2",

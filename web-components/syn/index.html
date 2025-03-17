@@ -3,11 +3,27 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" type="text/css" href="./dist/green-synapse.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Syn - Cannabis expert</title>
+		<style>
+			body {
+				margin: auto 0;
+				background-color: #0a3d0a;
+				background-image: url('https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Decorative-Elements-PNG/Cannabis_Hemp_Leaf_PNG_Clipart.png?m=1629831070');
+				background-size: 100px;
+			}
+		</style>
 	</head>
 	<body>
-		<my-syn></my-syn>
-		<script type="module" src="/src/index.ts"></script>
+		<div id="syn-wrapper">
+			<my-syn></my-syn>
+		</div>
+
+		<script type="module" src="./src/index.ts"></script>
 	</body>
 </html>

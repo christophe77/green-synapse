@@ -3,10 +3,13 @@ import path from 'path';
 import { getSitemapUrls, parseDocument } from './lib/parse';
 import { transformData } from './lib/transform';
 import { saveToPdf } from './lib/save';
+import { VectorStore } from './lib/vectorStore';
 import { Website } from '../data/types';
 import queryAI from '../queryAI';
 
-const commonKeywords = [
+export { VectorStore };
+
+export const commonKeywords = [
 	'cannabis',
 	'strain',
 	'cbd',
@@ -47,41 +50,46 @@ export async function initDocumentCollection(): Promise<void> {
 		const urls = await getSitemapUrls(website.sitemapUrl);
 
 		for (const url of urls) {
-			// parse document
-			const htmlContent = parseDocument(url);
-			// transform content
-			const transformedHtmlContent = transformData(htmlContent);
-			// save to pdf
 			const filename = url.split('/')?.pop()?.replace(/[?=]/g, '_') + '.pdf';
 			const outputPath = path.join(
 				path.resolve(),
 				'/data/documents/pdf',
 				website.name,
 			);
+			const outpuFilePath = path.join(outputPath, filename);
 
 			if (!fs.existsSync(outputPath)) {
 				fs.mkdirSync(outputPath, { recursive: true });
 			}
-			if (
-				transformedHtmlContent.transformed &&
-				transformedHtmlContent.content
-			) {
-				const outpuFilePath = path.join(outputPath, filename);
-				const readableFilename = filename.replace(/[^a-zA-Z ]/g, ' ');
+			
+			if (!fs.existsSync(outpuFilePath)) {
+				// parse document
+				const htmlContent = parseDocument(url);
+				// transform content
+				const transformedHtmlContent = transformData(htmlContent);
 
-				for (const keyword of commonKeywords) {
-					if (readableFilename.includes(keyword)) {
-						await saveToPdf(
-							transformedHtmlContent.content,
-							filename,
-							outpuFilePath,
-						);
-						const htmlContentToText = transformedHtmlContent.content.replace(/<[^>]*>?/gm, '');
-						const textToStore = htmlContentToText.replace(/\s+/g, ' ').trim();
-						console.log('textToStore', textToStore);
-						(await queryAI()).addTextToVectorStore(filename, textToStore);
+				if (
+					transformedHtmlContent.transformed &&
+					transformedHtmlContent.content
+				) {
+					const readableFilename = filename.replace(/[^a-zA-Z ]/g, ' ');
 
-						break;
+					for (const keyword of commonKeywords) {
+						if (readableFilename.includes(keyword)) {
+							await saveToPdf(
+								transformedHtmlContent.content,
+								filename,
+								outpuFilePath,
+							);
+							const htmlContentToText = transformedHtmlContent.content.replace(
+								/<[^>]*>?/gm,
+								'',
+							);
+							const textToStore = htmlContentToText.replace(/\s+/g, ' ').trim();
+							console.log('textToStore', textToStore);
+							(await queryAI()).addTextToVectorStore(filename, textToStore);
+							break;
+						}
 					}
 				}
 			}

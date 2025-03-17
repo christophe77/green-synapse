@@ -1,60 +1,59 @@
 import { mistral } from './index';
 
-async function generateSuggestions(
-	response: string,
-	count: number,
-): Promise<string[]> {
-	const suggestions: string[] = [];
-	const responseSentences = response.split(/[.!?]\s/);
+export type Message = {
+	role: 'system' | 'user' | 'assistant' | 'tool';
+	content: string;
+};
 
-	for (let i = 0; i < count; i++) {
-		const suggestion = responseSentences[i]
-			? responseSentences[i].trim() + '?'
-			: null;
-		if (suggestion) suggestions.push(suggestion);
-	}
-
-	return suggestions;
-}
-
-export default async function ask(question: string): Promise<
-	| {
-			response: string | null;
-			suggestions: string[] | null;
-	  }
-	| string
-> {
-	const messages: {
-		role: 'system' | 'user' | 'assistant' | 'tool';
-		content: string;
-	}[] = [];
-	const systemPrompt: string =
-		'You are Syn, a cannabis specialist, who helps the user by offering relevant suggestions and when posible providing links from the zamnesia.com or royalqueenseeds.com store to products related to their search.';
-	const suggestionsCount: number = 3;
+export default async function ask(
+	question: string,
+	messages: Message[] = [],
+): Promise<{
+	response: string | null;
+	messages: Message[];
+} | string> {
+	const systemPrompt: string = `You are Syn, a cannabis specialist
+									who helps the user by offering relevant suggestions
+									and when possible providing links from the zamnesia.com
+									store to products related to their search.
+									Please answer in full markdown.
+									And finish your answer with a question suggestion to improve some part of the initial question.`;
 
 	try {
-		const systemMessage = { role: 'system' as const, content: systemPrompt };
-		const userMessage = { role: 'user' as const, content: question };
+		// On crée une nouvelle copie de l'historique
+		const updatedMessages = [...messages];
 
-		const completeMessages = [systemMessage, ...messages, userMessage];
+		// Si c'est la première interaction, on ajoute le message système
+		if (updatedMessages.length === 0) {
+			const systemMessage: Message = { role: 'system', content: systemPrompt };
+			updatedMessages.push(systemMessage);
+		}
 
+		// On ajoute le message utilisateur
+		const userMessage: Message = { role: 'user', content: question };
+		updatedMessages.push(userMessage);
+
+		// Appel à l'API
 		const chatResponse = await mistral.chat.complete({
 			model: 'mistral-large-latest',
-			messages: completeMessages,
+			messages: updatedMessages,
 		});
 
 		if (chatResponse.choices && chatResponse.choices.length > 0) {
 			const responseContent = chatResponse.choices[0].message.content;
 
 			if (typeof responseContent === 'string') {
-				const suggestions = await generateSuggestions(
-					responseContent,
-					suggestionsCount,
-				);
+				// On ajoute la réponse de l'assistant à l'historique
+				const assistantMessage: Message = {
+					role: 'assistant',
+					content: responseContent,
+				};
+				updatedMessages.push(assistantMessage);
 
-				return { response: responseContent, suggestions };
+				// On retourne l'historique complet mis à jour
+				return { response: responseContent, messages: updatedMessages };
 			} else {
-				return 'La réponse de l’IA n’est pas une chaîne de caractères.';
+				return 'AI response is not a string';
 			}
 		}
 		return 'No response from AI';
