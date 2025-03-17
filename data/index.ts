@@ -46,6 +46,10 @@ export async function initDocumentCollection(): Promise<void> {
 		},
 	];
 	websitesToScrap.forEach(async (website) => {
+		await processWebsite(website);
+	});
+
+	async function processWebsite(website: Website): Promise<void> {
 		// get urls from sitemap
 		const urls = await getSitemapUrls(website.sitemapUrl);
 
@@ -61,39 +65,44 @@ export async function initDocumentCollection(): Promise<void> {
 			if (!fs.existsSync(outputPath)) {
 				fs.mkdirSync(outputPath, { recursive: true });
 			}
-			
+
 			if (!fs.existsSync(outpuFilePath)) {
-				// parse document
-				const htmlContent = parseDocument(url);
-				// transform content
-				const transformedHtmlContent = transformData(htmlContent);
+				await processUrl(url, filename, outpuFilePath);
+			}
+		}
+	}
 
-				if (
-					transformedHtmlContent.transformed &&
-					transformedHtmlContent.content
-				) {
-					const readableFilename = filename.replace(/[^a-zA-Z ]/g, ' ');
+	async function processUrl(
+		url: string,
+		filename: string,
+		outpuFilePath: string,
+	): Promise<void> {
+		// parse document
+		const htmlContent = parseDocument(url);
+		// transform content
+		const transformedHtmlContent = transformData(htmlContent);
 
-					for (const keyword of commonKeywords) {
-						if (readableFilename.includes(keyword)) {
-							await saveToPdf(
-								transformedHtmlContent.content,
-								filename,
-								outpuFilePath,
-							);
-							const htmlContentToText = transformedHtmlContent.content.replace(
-								/<[^>]*>?/gm,
-								'',
-							);
-							const textToStore = htmlContentToText.replace(/\s+/g, ' ').trim();
-							console.log('textToStore', textToStore);
-							(await queryAI()).addTextToVectorStore(filename, textToStore);
-							break;
-						}
-					}
+		if (transformedHtmlContent.transformed && transformedHtmlContent.content) {
+			const readableFilename = filename.replace(/[^a-zA-Z ]/g, ' ');
+
+			for (const keyword of commonKeywords) {
+				if (readableFilename.includes(keyword)) {
+					await saveToPdf(
+						transformedHtmlContent.content,
+						filename,
+						outpuFilePath,
+					);
+					const htmlContentToText = transformedHtmlContent.content.replace(
+						/<[^>]*>?/gm,
+						'',
+					);
+					const textToStore = htmlContentToText.replace(/\s+/g, ' ').trim();
+					console.log('textToStore', textToStore);
+					(await queryAI()).addTextToVectorStore(filename, textToStore);
+					break;
 				}
 			}
 		}
-	});
+	}
 }
-initDocumentCollection();
+// initDocumentCollection();
