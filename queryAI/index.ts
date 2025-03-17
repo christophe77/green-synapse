@@ -6,6 +6,8 @@ import { addTextToVectorStore, searchSimilarTextInVectorStore } from './embed';
 dotenv.config();
 
 const apiKey = process.env.MISTRAL_API_KEY;
+console.log('Mistral API Key:', process.env.MISTRAL_API_KEY);
+
 export const mistral = new Mistral({ apiKey });
 
 export default async function queryAI() {

@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import routes from './routes';
 import dotenv from 'dotenv';
@@ -9,6 +9,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+  console.error(err.stack); // Log the error to the console
+  res.status(500).json({ error: 'An error occurred', details: err.message });
+});
 app.use('/api', routes);
 
 const port = process.env.API_PORT ?? 3000;
