@@ -11,10 +11,10 @@
 	},
 	"include": [
 		"./api/**/*.ts",
-		"./knowledge/**/*.ts",
+		"./static-http-server/**/*.ts",
 		"./queryAI/**/*.ts",
 		"./web-components/syn/**/*.ts",
-		"data/lib/parse.ts"
+		"./data/**/*.ts"
 	],
 	"exclude": ["node_modules", "dist"],
 	"ts-node": {
