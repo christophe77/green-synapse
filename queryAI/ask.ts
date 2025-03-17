@@ -35,12 +35,8 @@ export default async function ask(
 	try {
 		// On crée une nouvelle copie de l'historique
 		const updatedMessages = [...messages];
-
-		// Si c'est la première interaction, on ajoute le message système
-		if (updatedMessages.length === 0) {
-			const systemMessage: Message = { role: 'system', content: systemPrompt };
-			updatedMessages.push(systemMessage);
-		}
+		const systemMessage: Message = { role: 'system', content: systemPrompt };
+		updatedMessages.push(systemMessage);
 
 		// On ajoute le message utilisateur
 		const userMessage: Message = { role: 'user', content: question };
