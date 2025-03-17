@@ -25,5 +25,6 @@ export default defineConfig({
   server: {
     open: true,
     strictPort: true,
+    allowedHosts:['vps-32f8344e.vps.ovh.net', 'localhost', '51.75.124.64']
   }
 })
