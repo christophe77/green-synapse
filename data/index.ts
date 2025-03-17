@@ -105,4 +105,4 @@ export async function initDocumentCollection(): Promise<void> {
 		}
 	}
 }
-// initDocumentCollection();
+initDocumentCollection();
