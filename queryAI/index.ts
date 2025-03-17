@@ -11,10 +11,22 @@ export const mistral = new Mistral({ apiKey });
 
 export default async function queryAI() {
 	return {
-		ask: (question: string, history:any) => ask(question, history),
+		ask: (question: string, history: any) => ask(question, history),
 		addTextToVectorStore: (id: string, text: string) =>
 			addTextToVectorStore(id, text),
 		searchSimilarTextInVectorStore: (query: string) =>
 			searchSimilarTextInVectorStore(query),
 	};
+}
+export async function testMistralAPI() {
+	try {
+		const chatResponse = await mistral.chat.complete({
+			model: 'mistral-large-latest', // Make sure this model is available for your API key
+			messages: [{ role: 'system', content: 'Test API connection' }],
+		});
+		console.log('Mistral API response:', chatResponse);
+		return chatResponse;
+	} catch (error) {
+		console.error('Error with Mistral API:', error);
+	}
 }

@@ -26,7 +26,7 @@ export default function useSyn() {
 					headers: {
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify({ question, messages:updatedMessages }),
+					body: JSON.stringify({ question, messages: updatedMessages }),
 				});
 				setQuestion('');
 				const data = await res.json();
@@ -43,5 +43,14 @@ export default function useSyn() {
 		});
 	};
 
-	return { messages, isPending, error, askQuestion, setQuestion, question, over18, setOver18 };
+	return {
+		messages,
+		isPending,
+		error,
+		askQuestion,
+		setQuestion,
+		question,
+		over18,
+		setOver18,
+	};
 }
