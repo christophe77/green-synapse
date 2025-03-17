@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Markdown from 'react-markdown';
 
 interface ISynConversationProps {
 	messages: { role: string; content: string | { response: string } }[];
@@ -15,7 +14,7 @@ export default function SynConversation({
 				marginBottom: '1rem',
 				borderRadius: '0.75rem',
 				borderWidth: '1px',
-				minHeight:'30vh',
+				minHeight: '30vh',
 				backgroundColor: '#1f2937',
 			}}
 		>
@@ -51,9 +50,15 @@ export default function SynConversation({
 							{message.role === 'assistant' &&
 							typeof message.content === 'object' &&
 							'response' in message.content ? (
-								<Markdown>{message.content.response}</Markdown>
+								<div
+									className="content"
+									dangerouslySetInnerHTML={{ __html: message.content.response }}
+								></div>
 							) : (
-								<>{message.content}</>
+								<div
+									className="content"
+									dangerouslySetInnerHTML={{ __html: message.content }}
+								></div>
 							)}
 						</div>
 					</div>

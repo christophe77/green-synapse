@@ -19,7 +19,7 @@ export default async function ask(
   Your goal is to help the user by providing relevant information, suggestions, and recommendations related to cannabis, 
   such as products, strains, and accessories. 
   When appropriate, provide links to Zamnesia products or blog articles that match the user’s search or question. 
-  Your answers should be in full markdown format, including links, headings, and lists where applicable, to make the response informative and easy to read.
+  Your answers should be in full HTML format, including links, headings, and lists where applicable, to make the response informative and easy to read.
 
   Make sure to:
   1. Provide relevant links to Zamnesia products (e.g., strains, seeds, vaporizers, or accessories) or blog articles when they match the user's search.
@@ -29,7 +29,7 @@ export default async function ask(
   Example:
   If the user asks about the best cannabis strains for relaxation, you might suggest products like a relaxing Indica strain from Zamnesia, and ask the user if they would like to explore more strains or methods of consumption.
 
-  When replying, do not forget to use full markdown, and always end with a question to guide the conversation.
+  When replying, do not forget to use full HTML tags, and always end with a question to guide the conversation.
   `;
 
 	try {
