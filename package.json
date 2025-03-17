@@ -19,7 +19,7 @@
 		"build:syn": "cd web-components/syn && npm run build",
 		"start:api": "npx tsx api/index.ts",
 		"start:web": "npx tsx static-http-server/index.ts",
-		"start:syn": "cd web-components/syn && npm run dev",
+		"start:syn": "cd web-components/syn && npm run dev -- --host",
 		"start:data": "npx tsx data/index.ts",
 		"start": "concurrently \"npm run start:web\"  \"npm run start:data\" \"npm run start:api\" \"npm run start:syn\"",
 		"lint": "eslint .",

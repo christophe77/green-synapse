@@ -63,7 +63,7 @@ http
 					// based on the URL path, extract the file extention. e.g. .js, .doc, ...
 					const ext = path.parse(pathname).ext;
 					// if the file is found, set Content-type and send data
-					res.setHeader('Content-type', mimeType[ext] || 'text/plain');
+					res.setHeader('Content-type', mimeType[ext as keyof typeof mimeType] || 'text/plain');
 					res.end(data);
 				}
 			});
