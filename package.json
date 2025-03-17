@@ -21,7 +21,7 @@
 		"start:web": "npx tsx static-http-server/index.ts",
 		"start:syn": "cd web-components/syn && npm run dev",
 		"start:data": "npx tsx data/index.ts",
-		"start": "concurrently --kill-others \"npm run start:web\" \"npm run start:api\" \"npm run start:syn\"",
+		"start": "concurrently \"npm run start:web\"  \"npm run start:data\" \"npm run start:api\" \"npm run start:syn\"",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
