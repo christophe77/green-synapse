@@ -7,19 +7,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = process.env.PORT || 9000;
+const port = Number(process.env.PORT) || 9000;
 
-// Serve static files from the pages directory
-app.use(express.static(join(__dirname, '../pages')));
+// Then serve static files from the web directory
+app.use(express.static(join(__dirname, '..')));
 
-// Serve the Syn web component
-app.use('/syn', express.static(join(__dirname, '../../node_modules/@green-synapse/web-components/dist')));
-
-// Serve index.html for all routes (SPA support)
+app.get('/syn', (_req: Request, res: Response) => {
+	res.sendFile(join(__dirname, '../pages/syn/index.html'));
+});
+app.get('/cross-breed-report', (_req: Request, res: Response) => {
+	res.sendFile(join(__dirname, '../pages/cross-breed-report/index.html'));
+});
+// Finally, serve index.html for all other routes (SPA support)
 app.get('*', (_req: Request, res: Response) => {
 	res.sendFile(join(__dirname, '../pages/home/index.html'));
 });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
 	console.log(`Server running at http://localhost:${port}`);
 });

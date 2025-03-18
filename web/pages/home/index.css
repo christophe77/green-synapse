@@ -5,52 +5,159 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--primary-color: #2e7d32;
+	--primary-light: #4caf50;
+	--primary-dark: #1b5e20;
+	--text-color: #333;
+	--text-light: #666;
+	--background-color: #f5f5f5;
+	--white: #ffffff;
+	--shadow: rgba(0, 0, 0, 0.1);
+}
+
 html,
 body {
 	height: 100%;
 }
 
 body {
+	margin: 0;
+	padding: 0;
 	font-family: 'Roboto', sans-serif;
-	background-color: #f4f7fc;
-	color: #333;
+	background-color: var(--background-color);
+	color: var(--text-color);
 	line-height: 1.6;
 	display: flex;
 	flex-direction: column;
 }
 
-header {
-	background-color: #4caf50; /* Greenish background */
-	color: white;
-	padding: 20px 0;
-	text-align: center;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	border-bottom: 2px solid #3e8e41;
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem;
 }
 
-#title {
+header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+	padding: 2rem 0;
+	background-color: var(--primary-color);
+	color: var(--white);
+	box-shadow: 0 2px 4px var(--shadow);
+	border-bottom: 3px solid var(--primary-color);
+}
+
+.logo {
+	width: 72px;
+	height: 72px;
+	object-fit: contain;
+	transition: transform 0.3s ease;
+}
+
+.logo:hover {
+	transform: scale(1.05);
+}
+
+h1 {
+	color: var(--white);
+	text-align: center;
+	margin: 0;
 	font-size: 2.5rem;
-	margin-bottom: 10px;
-	font-weight: bold;
+	font-weight: 700;
+	font-family: 'Cannabis', cursive;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 section {
-	max-width: 900px;
-	margin: 20px auto;
-	padding: 20px;
-	background-color: #fff;
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-	border-radius: 8px;
-	flex: 1;
-	width: 90%;
+	background-color: var(--white);
+	border-radius: 12px;
+	padding: 2rem;
+	margin: 2rem auto;
+	max-width: 800px;
+	box-shadow: 0 2px 4px var(--shadow);
+	border: 1px solid rgba(76, 175, 80, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#description,
-#syn {
+section:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px var(--shadow);
+}
+
+#description {
+	line-height: 1.6;
+	font-weight: 400;
 	font-size: 1.1rem;
-	line-height: 1.8;
-	color: #555;
-	margin-top: 20px;
+}
+
+#description b {
+	font-family: 'Cannabis', cursive;
+	font-size: 1.2em;
+	color: var(--primary-color);
+}
+
+#description span {
+	display: inline-block;
+	margin: 0.5rem 0;
+	padding-left: 1rem;
+	border-left: 3px solid var(--primary-color);
+}
+#syn {
+	line-height: 1.6;
+	font-weight: 400;
+	font-size: 1.1rem;
+}
+
+#syn b {
+	font-family: 'Cannabis', cursive;
+	font-size: 1.2em;
+	color: var(--primary-color);
+}
+#syn span {
+	display: inline-block;
+	margin: 0.5rem 0;
+	padding-left: 1rem;
+	border-left: 3px solid var(--primary-color);
+}
+
+syn-chat {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	display: block;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+footer {
+	text-align: center;
+	padding: 2rem;
+	background-color: var(--white);
+	margin-top: 2rem;
+	box-shadow: 0 -2px 4px var(--shadow);
+}
+
+footer p {
+	margin: 0.5rem 0;
+	font-family: 'Cannabis', cursive;
+	font-size: 1.1rem;
+	color: var(--text-light);
+}
+
+footer a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: color 0.3s ease;
+	font-weight: 500;
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+}
+
+footer a:hover {
+	color: var(--primary-light);
 }
 
 iframe {
@@ -60,28 +167,9 @@ iframe {
 	border-radius: 8px;
 }
 
-/* Footer Styling */
-footer {
-	background-color: #333;
-	color: white;
-	text-align: center;
-	padding: 20px 0;
-	margin-top: auto;
-}
-
-footer a {
-	color: #4caf50;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-footer a:hover {
-	text-decoration: underline;
-}
-
 @media (min-width: 768px) {
 	#title {
-		font-size: 3rem;
+		font-size: 3.5rem;
 	}
 
 	iframe {
@@ -91,4 +179,72 @@ footer a:hover {
 	section {
 		padding: 30px;
 	}
+
+	.logo {
+		width: 84px;
+		height: 84px;
+	}
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--primary-light);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--primary-color);
+}
+
+/* Breeding Report Styles */
+code {
+	display: block;
+	background-color: var(--white);
+	padding: 2rem;
+	border-radius: 8px;
+	margin: 1rem 0;
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: var(--text-color);
+}
+
+code h1,
+code h2,
+code h3 {
+	color: var(--text-color);
+	margin: 1rem 0;
+}
+
+code ul {
+	list-style-type: disc;
+	margin-left: 20px;
+	margin: 1rem 0;
+}
+
+code a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+code a:hover {
+	color: var(--primary-light);
+	text-decoration: underline;
+}
+
+code p {
+	margin: 1rem 0;
+}
+
+code strong {
+	color: var(--primary-color);
+	font-weight: 600;
 }

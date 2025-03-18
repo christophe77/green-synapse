@@ -6,13 +6,23 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Green Synapse</title>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+			rel="icon"
+			type="image/svg+xml"
+			href="/pages/home/assets/favicon.svg"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cannabis:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="/home/index.css" />
+		<link rel="stylesheet" href="/pages/home/index.css" />
 	</head>
 	<body>
 		<header>
+			<img
+				src="/pages/home/assets/logo.svg"
+				alt="Green Synapse Logo"
+				class="logo"
+			/>
 			<h1 id="title">Green Synapse</h1>
 		</header>
 		<section>
@@ -40,9 +50,157 @@
 				He has been feeded with Zamnesia and Royal Queen Seeds blog articles in
 				english language.
 			</p>
-			<syn-chat></syn-chat>
+			<code>
+				Feel free to beta test Syn assistant here :
+				<a href="/syn" target="_blank">Syn</a></code
+			>
 		</section>
 
+		<section>
+			<p id="description">
+				Exemple of use case : <b>Cross Breed Report</b>, a tool to help you
+				generate a report for your cross breedings.<br />
+				It uses a Mistral-based LLM to generate a report based on your
+				parameters.
+			</p>
+			<p id="description">
+				Here is the report for the cross breeding to produce a specific strain
+				with red flowers and strawberry flavours :
+			</p>
+			<code>
+				<title>Cannabis Breeding Plan</title>
+				<body>
+					<h1>Cannabis Breeding Plan for Award-Winning Autoflower Strain</h1>
+					<h2>Objective</h2>
+					<p>
+						To create an award-winning autoflower strain with red flowers and a
+						strawberry flavor.
+					</p>
+					<h2>Recommended Strains for Crossing</h2>
+					<ul>
+						<li>
+							<strong>Purpleberry Autoflower</strong> - Known for its purple/red
+							hues and berry flavors.
+						</li>
+						<li>
+							<strong>Strawberry Banana Autoflower</strong> - Offers a strong
+							strawberry flavor profile.
+						</li>
+						<li>
+							<strong>Red Poison Autoflower</strong> - Known for its red and
+							purple colors and fruity aroma.
+						</li>
+					</ul>
+
+					<h2>Breeding Plan</h2>
+					<h3>Phase 1: Initial Cross</h3>
+					<p>
+						Cross <strong>Purpleberry Autoflower</strong> with
+						<strong>Strawberry Banana Autoflower</strong> to combine the
+						red/purple hues with the strawberry flavor.
+					</p>
+					<ul>
+						<li>
+							Select a male <strong>Purpleberry Autoflower</strong> plant with
+							the most intense red/purple colors.
+						</li>
+						<li>
+							Select a female
+							<strong>Strawberry Banana Autoflower</strong> plant with the
+							strongest strawberry flavor.
+						</li>
+						<li>Pollinate the female plant with the male pollen.</li>
+						<li>Collect the seeds from the female plant.</li>
+					</ul>
+					<h3>Phase 2: Backcrossing</h3>
+					<p>
+						Backcross the F1 generation with
+						<strong>Red Poison Autoflower</strong> to enhance the red colors and
+						fruity aroma.
+					</p>
+					<ul>
+						<li>
+							Grow the F1 seeds and select the best phenotype with red flowers
+							and strawberry flavor.
+						</li>
+						<li>
+							Cross this selected F1 female with a male
+							<strong>Red Poison Autoflower</strong> plant.
+						</li>
+						<li>Collect the seeds from the female plant.</li>
+					</ul>
+					<h3>Phase 3: Stabilization</h3>
+					<p>
+						Stabilize the desired traits through selective breeding over several
+						generations.
+					</p>
+					<ul>
+						<li>
+							Grow the backcrossed seeds and select the best phenotypes with red
+							flowers and strawberry flavor.
+						</li>
+						<li>
+							Self-pollinate the selected females or cross them with selected
+							males from the same generation.
+						</li>
+						<li>
+							Repeat this process for at least 3-4 generations to stabilize the
+							traits.
+						</li>
+					</ul>
+					<h2>Additional Tips</h2>
+					<ul>
+						<li>
+							Maintain detailed records of each cross and the characteristics of
+							the offspring.
+						</li>
+						<li>
+							Use controlled environments to minimize external factors affecting
+							the phenotypes.
+						</li>
+						<li>
+							Consider using marker-assisted selection (MAS) for precise trait
+							selection.
+						</li>
+					</ul>
+					<h2>Recommended Products</h2>
+					<ul>
+						<li>
+							<a
+								href="https://www.zamnesia.com/1740-purpleberry-auto-feminised"
+								target="_blank"
+								>Purpleberry Autoflower</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.zamnesia.com/191621-strawberry-banana-auto-feminised"
+								target="_blank"
+								>Strawberry Banana Autoflower</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.zamnesia.com/190508-red-poison-auto-feminised"
+								target="_blank"
+								>Red Poison Autoflower</a
+							>
+						</li>
+					</ul>
+					<h2>Conclusion</h2>
+					<p>
+						By following this breeding plan, you can create a unique autoflower
+						strain with red flowers and a strawberry flavor that has the
+						potential to win awards at the Cannabis Cup. Good luck with your
+						breeding project!
+					</p>
+					<p>
+						Would you like more information on cannabis breeding techniques or
+						specific strains?
+					</p>
+				</body>
+			</code>
+		</section>
 		<footer>
 			<p>&copy; 2025 Green Synapse. All rights reserved.</p>
 			<p>
@@ -58,6 +216,6 @@
 			</p>
 		</footer>
 
-		<script type="module" src="/syn/index.js"></script>
+		<script type="module" src="/syn/src/index.js"></script>
 	</body>
 </html>
