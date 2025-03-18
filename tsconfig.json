@@ -1,23 +1,26 @@
 {
 	"compilerOptions": {
 		"target": "ES2020",
-		"module": "ES2020",
-		"moduleResolution": "bundler",
+		"module": "commonjs",
 		"strict": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"outDir": "./dist"
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"composite": true,
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"baseUrl": ".",
+		"paths": {
+			"@green-synapse/*": ["packages/*/src"]
+		}
 	},
-	"include": [
-		"./api/**/*.ts",
-		"./static-http-server/**/*.ts",
-		"./queryAI/**/*.ts",
-		"./web-components/syn/**/*.ts",
-		"./data/**/*.ts"
-	],
-	"exclude": ["node_modules", "dist"],
-	"ts-node": {
-		"esm": true
-	}
+	"exclude": ["node_modules"]
 }

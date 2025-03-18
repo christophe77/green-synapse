@@ -1,0 +1,17 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"baseUrl": ".",
+		"paths": {
+			"@green-synapse/shared": ["../shared/src"],
+			"@green-synapse/shared/*": ["../shared/src/*"],
+			"@green-synapse/data": ["../data/src"],
+			"@green-synapse/data/*": ["../data/src/*"]
+		}
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"],
+	"references": [{ "path": "../shared" }, { "path": "../data" }]
+}

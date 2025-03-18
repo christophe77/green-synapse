@@ -1,0 +1,15 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./dist",
+		"rootDir": ".",
+		"baseUrl": ".",
+		"paths": {
+			"@green-synapse/data/*": ["../data/src/*"],
+			"@green-synapse/queryai/*": ["../queryai/*"]
+		}
+	},
+	"include": ["*.ts"],
+	"exclude": ["node_modules", "dist"],
+	"references": [{ "path": "../data" }, { "path": "../queryai" }]
+}

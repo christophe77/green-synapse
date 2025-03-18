@@ -1,0 +1,1 @@
+export { SimpleVectorStore } from '@green-synapse/shared'; 

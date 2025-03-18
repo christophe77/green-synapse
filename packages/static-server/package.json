@@ -1,0 +1,18 @@
+{
+	"name": "@green-synapse/static-server",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"start": "ts-node index.ts",
+		"build": "tsc",
+		"dev": "ts-node-dev --respawn index.ts"
+	},
+	"dependencies": {
+		"typescript": "^5.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"ts-node": "^10.9.2",
+		"ts-node-dev": "^2.0.0"
+	}
+}
