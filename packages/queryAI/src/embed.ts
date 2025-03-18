@@ -3,8 +3,8 @@ import { mistral } from './index';
 import path from 'path';
 
 const vectorStore = new SimpleVectorStore({ dimension: 1024 });
-const __dirname = path.resolve();
-const localDatabasePath = path.join(__dirname, 'data/database.json');
+const dirname = path.resolve();
+const localDatabasePath = path.join(dirname, 'data/database.json');
 
 async function generateEmbedding(text: string): Promise<number[]> {
 	try {

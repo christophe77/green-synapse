@@ -1,0 +1,9 @@
+{
+	"name": "@green-synapse/web",
+	"version": "1.0.0",
+	"private": true,
+	"scripts": {
+		"build": "echo 'No build step needed for static web files'",
+		"dev": "echo 'No dev step needed for static web files'"
+	}
+}
