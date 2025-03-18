@@ -9,6 +9,9 @@ const __dirname = dirname(__filename);
 const app = express();
 const port = Number(process.env.PORT) || 9000;
 
+// Serve the Syn web component first
+app.use('/syn', express.static(join(__dirname, '../../../packages/web-components/dist')));
+
 // Then serve static files from the web directory
 app.use(express.static(join(__dirname, '..')));
 

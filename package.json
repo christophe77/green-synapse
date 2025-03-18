@@ -5,11 +5,12 @@
 		"packages/*"
 	],
 	"scripts": {
-		"build": "pnpm -r build",
-		"dev": "concurrently \"pnpm --filter @green-synapse/web dev\" \"pnpm --filter @green-synapse/web-components dev\"",
-		"test": "pnpm -r test"
+		"build": "yarn workspaces run build",
+		"dev": "concurrently \"pnpm --filter @green-synapse/api dev\" \"pnpm --filter @green-synapse/web dev\" \"pnpm --filter @green-synapse/web-components dev\"",
+		"start": "yarn workspaces run start"
 	},
 	"devDependencies": {
-		"concurrently": "^9.1.2"
+		"concurrently": "^9.1.2",
+		"vite": "^6.2.0"
 	}
 }
