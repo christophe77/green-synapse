@@ -6,7 +6,7 @@
 	],
 	"scripts": {
 		"build": "yarn workspaces run build",
-		"dev": "concurrently \"pnpm --filter @green-synapse/api dev\" \"pnpm --filter @green-synapse/web dev\" \"cd syn && pnpm dev\"",
+		"dev": "concurrently \"pnpm --filter @green-synapse/api dev\" \"pnpm --filter @green-synapse/web dev\" \"cd syn && pnpm dev -- --host\"",
 		"start": "yarn workspaces run start"
 	},
 	"devDependencies": {
