@@ -6,7 +6,10 @@
 	],
 	"scripts": {
 		"build": "pnpm -r build",
-		"dev": "pnpm --filter @green-synapse/web dev",
+		"dev": "concurrently \"pnpm --filter @green-synapse/web dev\" \"pnpm --filter @green-synapse/web-components dev\"",
 		"test": "pnpm -r test"
+	},
+	"devDependencies": {
+		"concurrently": "^9.1.2"
 	}
 }

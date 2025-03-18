@@ -21,7 +21,7 @@ export default function useSyn() {
 			];
 			setMessages(updatedMessages);
 			try {
-				const res = await fetch('http://vps-32f8344e.vps.ovh.net:3000/api/ask', {
+				const res = await fetch('http://0.0.0.0:3000/api/ask', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
