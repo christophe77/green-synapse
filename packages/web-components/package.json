@@ -3,9 +3,9 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"start": "ts-node index.ts",
+		"start": "tsx index.ts",
 		"build": "tsc",
-		"dev": "ts-node-dev --respawn index.ts"
+		"dev": "tsx index.ts"
 	},
 	"dependencies": {
 		"@green-synapse/data": "workspace:*",
