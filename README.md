@@ -1,136 +1,125 @@
 # Green Synapse
 
-A modular TypeScript project for building AI-powered cannabis-related applications with vector search capabilities.
+Green Synapse combines the power and knowledge of artificial intelligence with specialized cannabis data. Whether you're interested in cultivation, cloning, genetics, effects, cannabinoids, or any other aspect, green synapse can provide you the information you need.
 
-## Architecture
+Based on a Mistral-based LLM together with specialized local documents, we can build useful tools for cannabis-related business.
 
-The project is organized into several packages:
+## Features
 
-### Core Packages
+- AI-powered cannabis information assistant
+- Specialized knowledge base from Zamnesia and Royal Queen Seeds
+- Web component for easy integration
+- RESTful API for programmatic access
 
-- `@green-synapse/shared`: Core types and utilities shared across packages
+## Getting Started
 
-  - Defines common interfaces like `Document`, `VectorStore`, etc.
-  - Implements the `SimpleVectorStore` for vector similarity search
+### Prerequisites
 
-- `@green-synapse/data`: Data processing and storage
+- Node.js 20 or later
+- pnpm 8 or later
+- Docker (optional, for containerized deployment)
 
-  - Handles document parsing and transformation
-  - Manages PDF generation and storage
-  - Provides vector store functionality through shared package
+### Local Development
 
-- `@green-synapse/queryai`: AI and query processing
+1. Clone the repository:
 
-  - Integrates with Mistral AI for embeddings and chat
-  - Manages vector search operations
-  - Provides high-level query interface
+```bash
+git clone https://github.com/christophe77/green-synapse.git
+cd green-synapse
+```
 
-- `@green-synapse/api`: REST API server
-  - Exposes endpoints for AI interactions
-  - Handles request/response formatting
-  - Manages error handling and middleware
-
-### Supporting Packages
-
-- `@green-synapse/web-components`: Frontend components
-- `@green-synapse/static-server`: Static file serving
-- `@green-synapse/pwa`: Progressive Web App functionality
-
-## Setup
-
-1. Install dependencies:
+2. Install dependencies:
 
 ```bash
 pnpm install
 ```
 
-2. Create a `.env` file in the root directory with:
-
-```
-MISTRAL_API_KEY=your_api_key_here
-API_PORT=3000
-```
-
-## Development
-
-### Building the Project
+3. Build the packages:
 
 ```bash
-# Build all packages
 pnpm build
-
-# Build specific package
-pnpm --filter @green-synapse/api build
 ```
 
-### Running in Development Mode
+4. Start the development server:
 
 ```bash
-# Start the API server
-pnpm --filter @green-synapse/api dev
-
-# Start the static server
-pnpm --filter @green-synapse/static-server dev
+pnpm --filter @green-synapse/web dev
 ```
 
-## API Usage
+The application will be available at http://localhost:9000
 
-### Chat Endpoint
+### Docker Deployment
+
+1. Build the Docker image:
 
 ```bash
-# Send a chat message
-curl -X POST http://localhost:3000/api/ask \
-  -H "Content-Type: application/json" \
-  -d '{"question": "What is cannabis?", "messages": []}'
-
-# Test Mistral API connection
-curl http://localhost:3000/api/ask
+docker build -t green-synapse .
 ```
 
-### Vector Store Operations
+2. Run the container:
 
-The vector store provides the following operations:
-
-```typescript
-// Add text to vector store
-await queryAI().addTextToVectorStore('doc_id', 'text content');
-
-// Search similar texts
-const results = await queryAI().searchSimilarTextInVectorStore('query text');
+```bash
+docker run -p 9000:9000 green-synapse
 ```
+
+Or using docker-compose:
+
+```bash
+docker-compose up -d
+```
+
+The application will be available at http://localhost:9000
 
 ## Project Structure
 
 ```
 green-synapse/
 ├── packages/
-│   ├── shared/           # Core types and utilities
-│   ├── data/            # Data processing and storage
-│   ├── queryai/         # AI and query processing
-│   ├── api/             # REST API server
-│   ├── web-components/  # Frontend components
-│   ├── static-server/   # Static file serving
-│   └── pwa/             # Progressive Web App
-├── tsconfig.json        # Root TypeScript configuration
-└── package.json         # Root package configuration
+│   ├── api/          # REST API server
+│   ├── data/         # Data management and storage
+│   ├── queryAI/      # AI query processing
+│   ├── shared/       # Shared types and utilities
+│   └── web-components/ # Web components library
+├── web/              # Web application
+├── Dockerfile        # Docker configuration
+├── docker-compose.yml # Docker Compose configuration
+└── package.json      # Root package configuration
 ```
 
-## Dependencies
+## API Usage
 
-- TypeScript
-- Express.js
-- Mistral AI
-- PDF Generation
-- Vector Search
+### Ask a Question
+
+```bash
+curl -X POST http://localhost:9000/api/ask \
+  -H "Content-Type: application/json" \
+  -d '{"question": "What are the best conditions for growing cannabis?"}'
+```
+
+### Add Text to Vector Store
+
+```bash
+curl -X POST http://localhost:9000/api/vector-store/add \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Cannabis grows best in well-draining soil with pH between 6.0 and 7.0."}'
+```
+
+### Search Similar Text
+
+```bash
+curl -X POST http://localhost:9000/api/vector-store/search \
+  -H "Content-Type: application/json" \
+  -d '{"query": "soil pH for cannabis"}'
+```
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is private and proprietary.
+This project is licensed under the MIT License - see the LICENSE file for details.
