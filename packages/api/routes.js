@@ -37,7 +37,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const queryAI_1 = __importStar(require("../queryAI"));
+const queryAI_1 = __importStar(require("../queryai"));
 const router = express_1.default.Router();
 router.post('/ask', async (req, res) => {
     const { question, messages } = req.body;

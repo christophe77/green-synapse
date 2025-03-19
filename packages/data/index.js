@@ -12,7 +12,7 @@ const transform_1 = require("./lib/transform");
 const save_1 = require("./lib/save");
 const vectorStore_1 = require("./lib/vectorStore");
 Object.defineProperty(exports, "VectorStore", { enumerable: true, get: function () { return vectorStore_1.VectorStore; } });
-const queryAI_1 = __importDefault(require("../queryAI"));
+const queryAI_1 = __importDefault(require("../queryai"));
 exports.commonKeywords = [
     'cannabis',
     'strain',
