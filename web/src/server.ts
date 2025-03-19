@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const port = Number(process.env.PORT) || 9000;
+const port = Number(process.env.PORT) || 8080;
 
 // Serve the Syn web component first
 app.use('/syn', express.static(join(__dirname, '../../../packages/web-components/dist')));
@@ -15,9 +15,6 @@ app.use('/syn', express.static(join(__dirname, '../../../packages/web-components
 // Then serve static files from the web directory
 app.use(express.static(join(__dirname, '..')));
 
-app.get('/syn', (_req: Request, res: Response) => {
-	res.sendFile(join(__dirname, '../pages/syn/index.html'));
-});
 app.get('/cross-breed-report', (_req: Request, res: Response) => {
 	res.sendFile(join(__dirname, '../pages/cross-breed-report/index.html'));
 });
@@ -27,5 +24,5 @@ app.get('*', (_req: Request, res: Response) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-	console.log(`Server running at http://localhost:${port}`);
+	console.log(`Server smoking on pot ${port}`);
 });

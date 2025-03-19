@@ -1,12 +1,16 @@
 import { Mistral } from '@mistralai/mistralai';
-import dotenv from 'dotenv';
+import { config } from 'dotenv';
+import { resolve } from 'path';
 import ask from './ask';
 import { addTextToVectorStore, searchSimilarTextInVectorStore } from './embed';
 
-dotenv.config();
+// Charger le fichier .env depuis le répertoire racine du projet
+const envPath = resolve(__dirname, '../../../.env');
+const result = config({ path: envPath });
 
-const apiKey = process.env.MISTRAL_API_KEY;
+const apiKey = result.parsed?.MISTRAL_API_KEY;
 
+console.log('using api key', apiKey);
 export const mistral = new Mistral({ apiKey });
 
 export default async function queryAI() {
@@ -19,16 +23,3 @@ export default async function queryAI() {
 	};
 }
 
-export async function testMistralAPI() {
-	try {
-		const chatResponse = await mistral.chat.complete({
-			model: 'mistral-large-latest', // Make sure this model is available for your API key
-			messages: [{ role: 'system', content: 'Test API connection' }],
-		});
-		console.log('Mistral API response:', chatResponse);
-		return chatResponse;
-	} catch (error) {
-		console.error('Error with Mistral API:', error);
-		return null; // Return null in case of error
-	}
-}

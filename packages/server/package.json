@@ -1,11 +1,13 @@
 {
 	"name": "@green-synapse/server",
 	"version": "1.0.0",
+	"description": "Web server for Green Synapse",
+	"main": "dist/index.js",
 	"private": true,
 	"type": "module",
 	"scripts": {
 		"start": "node dist/index.js",
-		"dev": "tsc --watch",
+		"dev": "node --loader ts-node/esm src/index.ts",
 		"build": "tsc"
 	},
 	"dependencies": {
@@ -15,6 +17,8 @@
 	"devDependencies": {
 		"@types/express": "^4.17.21",
 		"@types/cors": "^2.8.17",
+		"@types/node": "^20.11.19",
+		"ts-node": "^10.9.2",
 		"typescript": "^5.3.3"
 	}
 }
