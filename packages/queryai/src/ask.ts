@@ -1,4 +1,7 @@
-import { mistral } from './index';
+import { Mistral } from '@mistralai/mistralai';
+
+
+const mistral = new Mistral({ apiKey: 'QPXqzc2zupz8YsqqUQJLbF9eDSjAx0AL' });
 
 export type Message = {
 	role: 'system' | 'user' | 'assistant' | 'tool';
@@ -15,6 +18,7 @@ export default async function ask(
 	  }
 	| string
 > {
+
 	const systemPrompt: string = `You are Syn, a highly knowledgeable cannabis expert assistant. 
   Your goal is to help the user by providing relevant information, suggestions, and recommendations related to cannabis, 
   such as products, strains, and accessories. 
