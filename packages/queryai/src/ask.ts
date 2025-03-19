@@ -1,7 +1,7 @@
 import { Mistral } from '@mistralai/mistralai';
 
 
-const mistral = new Mistral({ apiKey: 'QPXqzc2zupz8YsqqUQJLbF9eDSjAx0AL' });
+const mistral = new Mistral({ apiKey: 'xxxxxx' });
 
 export type Message = {
 	role: 'system' | 'user' | 'assistant' | 'tool';
