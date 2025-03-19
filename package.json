@@ -8,7 +8,7 @@
 	],
 	"scripts": {
 		"build": "pnpm build:all",
-		"build:all": "pnpm --filter @green-synapse/shared build && pnpm --filter @green-synapse/data build && pnpm --filter @green-synapse/queryai build && pnpm --filter @green-synapse/web-components build && pnpm --filter @green-synapse/api build && pnpm --filter @green-synapse/server build",
+		"build:all": "pnpm --filter @green-synapse/shared build && pnpm --filter @green-synapse/queryai build && pnpm --filter @green-synapse/data build && pnpm --filter @green-synapse/web-components build && pnpm --filter @green-synapse/api build && pnpm --filter @green-synapse/server build",
 		"dev": "pnpm dev:all",
 		"dev:all": "concurrently \"pnpm --filter @green-synapse/api dev\" \"pnpm --filter @green-synapse/server dev\" \"pnpm --filter @green-synapse/web dev\"",
 		"start": "pnpm start:all",
