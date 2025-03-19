@@ -194,7 +194,7 @@ export class AskSyn extends LitElement {
 	}
 
 	renderMessage(message: { role: string; content: string }) {
-		if (message.role === 'assistant') {
+		if (message.role === 'assistant' && message.content) {
 			const htmlContent = marked(message.content) as string;
 			return html`
 				<div class="message-content">
@@ -202,7 +202,7 @@ export class AskSyn extends LitElement {
 				</div>
 			`;
 		}
-		return message.content;
+		return message.content || '';
 	}
 
 	render() {
