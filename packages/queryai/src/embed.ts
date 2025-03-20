@@ -1,5 +1,5 @@
 import { Document, VectorStore, SimpleVectorStore } from '@green-synapse/shared';
-import { mistral } from './index';
+import { createMistralInstance } from './common';
 import path from 'path';
 
 const vectorStore = new SimpleVectorStore({ dimension: 1024 });
@@ -7,6 +7,7 @@ const dirname = path.resolve();
 const localDatabasePath = path.join(dirname, 'data/database.json');
 
 async function generateEmbedding(text: string): Promise<number[]> {
+	const mistral = createMistralInstance();
 	try {
 		// Envoi de la requête d'embedding
 		const response = await mistral.embeddings.create({

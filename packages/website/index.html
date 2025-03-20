@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="module" src="/web-components/index.js"></script>
+		<title>Green Synapse</title>
+		<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+		/>
+	</head>
+	<body class="bg-gray-900 text-gray-100 font-sans">
+		<header class="flex items-center justify-between p-5 bg-green-700">
+			<div class="flex items-center">
+				<img
+					src="/assets/logo.svg"
+					alt="Green Synapse Logo"
+					class="h-10 w-10 mr-3"
+				/>
+				<h1 class="text-3xl font-bold">Green Synapse</h1>
+			</div>
+		</header>
+
+		<main class="p-10 space-y-10">
+			<section>
+				<p class="text-lg leading-relaxed mb-4">
+					<b>Green Synapse</b> combines the power and knowledge of artificial
+					intelligence with specialized cannabis data.<br />
+					Whether you're interested in cultivation, cloning, genetics, effects,
+					cannabinoids, or any other aspect, green synapse can provide you the
+					information you need.<br />
+					Based on a Mistral-based LLM together with specialized local
+					documents, we can build usefull tools for cannabis-related
+					business.<br />
+				</p>
+				<p class="text-lg leading-relaxed mb-4">
+					<b>Exemples of use cases :</b><br />
+					<span>- Write blog posts</span><br />
+					<span>- Write descriptions for your products</span><br />
+					<span>- Reply user comments on product pages</span><br />
+					<span>- Build a shopping assistant for your online shop</span><br />
+					<span>- Build a selling assistant for your affiliates</span><br />
+					<span
+						>- Define a cross breeding logic to produce a specific strain</span
+					><br />
+					<span
+						>- Predict a common winning pattern for the cannabis cup
+						awards</span
+					><br />
+				</p>
+			</section>
+			<section>
+				<h2 class="text-2xl font-bold mb-4">
+					Project 1 : Syn - Cannabis assistant
+				</h2>
+				<p class="text-lg leading-relaxed mb-4">
+					<p class="text-green-400">
+						<ask-syn></ask-syn>
+					</p>
+				</p>
+			</section>
+			<section>
+				<h2 class="text-2xl font-bold mb-4">
+					Exemple : Cannabis Breeding Plan
+				</h2>
+				<p class="text-lg leading-relaxed mb-4">
+					Syn is able to generate detailed breeding plans tailored to specific
+					goals such as flavor, color, and effects. This tool provides precise
+					guidance for crossbreeding projects.
+				</p>
+				<div
+					class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto font-mono"
+				>
+					<h1 class="text-xl font-bold">
+						Exemple : Cannabis Breeding Plan for autoflower strain, with
+						strawberry flavors and colors.
+					</h1>
+					<h2 class="mt-4 text-lg font-semibold">Objective</h2>
+					<p>
+						To create an autoflower strain with red flowers and a strawberry
+						flavor.
+					</p>
+					<h2 class="mt-4 text-lg font-semibold">
+						Recommended Strains for Crossing
+					</h2>
+					<ul class="list-disc p-2">
+						<li>
+							<strong>Purpleberry Autoflower</strong> - Known for its purple/red
+							hues and berry flavors.
+						</li>
+						<li>
+							<strong>Strawberry Banana Autoflower</strong> - Offers a strong
+							strawberry flavor profile.
+						</li>
+						<li>
+							<strong>Red Poison Autoflower</strong> - Known for its red and
+							purple colors and fruity aroma.
+						</li>
+					</ul>
+
+					<h2 class="mt-4 text-lg font-semibold">Breeding Plan</h2>
+					<h3 class="mt-2 text-lg font-semibold">Phase 1: Initial Cross</h3>
+					<p>
+						Cross <strong>Purpleberry Autoflower</strong> with
+						<strong>Strawberry Banana Autoflower</strong> to combine the
+						red/purple hues with the strawberry flavor.
+					</p>
+					<ul class="list-disc p-2">
+						<li>
+							Select a male <strong>Purpleberry Autoflower</strong> plant with
+							the most intense red/purple colors.
+						</li>
+						<li>
+							Select a female
+							<strong>Strawberry Banana Autoflower</strong> plant with the
+							strongest strawberry flavor.
+						</li>
+						<li>Pollinate the female plant with the male pollen.</li>
+						<li>Collect the seeds from the female plant.</li>
+					</ul>
+					<h3 class="mt-4 text-lg font-semibold">Phase 2: Backcrossing</h3>
+					<p>
+						Backcross the F1 generation with
+						<strong>Red Poison Autoflower</strong> to enhance the red colors and
+						fruity aroma.
+					</p>
+					<ul class="list-disc p-2">
+						<li>
+							Grow the F1 seeds and select the best phenotype with red flowers
+							and strawberry flavor.
+						</li>
+						<li>
+							Cross this selected F1 female with a male
+							<strong>Red Poison Autoflower</strong> plant.
+						</li>
+						<li>Collect the seeds from the female plant.</li>
+					</ul>
+					<h3 class="mt-4 text-lg font-semibold">Phase 3: Stabilization</h3>
+					<p>
+						Stabilize the desired traits through selective breeding over several
+						generations.
+					</p>
+					<ul class="list-disc p-2">
+						<li>
+							Grow the backcrossed seeds and select the best phenotypes with red
+							flowers and strawberry flavor.
+						</li>
+						<li>
+							Self-pollinate the selected females or cross them with selected
+							males from the same generation.
+						</li>
+						<li>
+							Repeat this process for at least 3-4 generations to stabilize the
+							traits.
+						</li>
+					</ul>
+					<h2 class="mt-4 text-lg font-semibold">Additional Tips</h2>
+					<ul class="list-disc p-2">
+						<li>
+							Maintain detailed records of each cross and the characteristics of
+							the offspring.
+						</li>
+						<li>
+							Use controlled environments to minimize external factors affecting
+							the phenotypes.
+						</li>
+						<li>
+							Consider using marker-assisted selection (MAS) for precise trait
+							selection.
+						</li>
+					</ul>
+					<h2 class="mt-4 text-lg font-semibold">Recommended Products</h2>
+					<ul class="list-disc p-2">
+						<li>
+							<a
+								href="https://www.zamnesia.com/1740-purpleberry-auto-feminised"
+								target="_blank"
+								class="text-green-500 hover:underline"
+								>Purpleberry Autoflower</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.zamnesia.com/191621-strawberry-banana-auto-feminised"
+								target="_blank"
+								class="text-green-500 hover:underline"
+								>Strawberry Banana Autoflower</a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.zamnesia.com/190508-red-poison-auto-feminised"
+								target="_blank"
+								class="text-green-500 hover:underline"
+								>Red Poison Autoflower</a
+							>
+						</li>
+					</ul>
+					<h2 class="mt-4 text-lg font-semibold">Conclusion</h2>
+					<p>
+						By following this breeding plan, you can create a unique autoflower
+						strain with red flowers and a strawberry flavor that has the
+						potential to win awards at the Cannabis Cup. Good luck with your
+						breeding project!
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="text-2xl font-bold mb-4">
+					Exemple : Setup a full cannabis breeding schedule corresponding to
+					world cannabis awards events
+				</h2>
+				<p class="text-lg leading-relaxed mb-4">
+					Plan your breeding efforts with an optimized schedule to reach your
+					desired genetic results effectively.
+				</p>
+				<div
+					class="bg-gray-800 text-green-400 p-4 rounded-lg overflow-x-auto font-mono"
+				>
+					<h2 class="text-lg font-semibold">
+						Cannabis Breeding & Competition Preparation
+					</h2>
+					<h2 class="mt-4 text-lg font-semibold">1. Detailed Variety Sheets</h2>
+					<h3 class="mt-2 text-lg font-semibold">
+						Blackout (Indica with Black Leaves)
+					</h3>
+					<p><strong>Objectives:</strong></p>
+					<ul class="list-disc p-2">
+						<li>Unique appearance: Black leaves and flowers.</li>
+						<li>Powerful effect: "Blackout" effect with high THC (>25%).</li>
+						<li>Earthy, coffee, or peppery taste.</li>
+						<li>Indica-dominant genetics (>80%).</li>
+					</ul>
+					<p class="pb-2">
+						<strong>Initial Cross:</strong> Hokkaido Hemp x Black Domina (pure
+						Indica with dark leaves).
+					</p>
+					<p><strong>Genetic Stabilization:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Selective crossings in F2, F3 to enhance the black appearance and
+							intense effect.
+						</li>
+						<li>Cloning for genetic consistency.</li>
+						<li>Regular THC, CBD, and terpene tests.</li>
+					</ul>
+					<p><strong>Target Competitions:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Emerald Cup (Month 22) — First presentation in California to
+							showcase the potent effects.
+						</li>
+						<li>
+							High Times Cannabis Cup (Year 3) — Stabilized variety
+							presentation.
+						</li>
+					</ul>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Deep Purple (Improved Purple Haze)
+					</h3>
+
+					<p><strong>Objectives:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Retain the classic fruity Purple Haze flavor (grapes, berries,
+							floral).
+						</li>
+						<li>Increase potency and/or prolong the effects.</li>
+						<li>Sativa-dominant genetics (>70%).</li>
+					</ul>
+
+					<p class="pb-2">
+						<strong>Initial Cross:</strong> Purple Haze x Amnesia Haze (Sativa
+						with prolonged and energetic effects).
+					</p>
+					<p><strong>Genetic Stabilization:</strong></p>
+					<ul class="list-disc p-2">
+						<li>Selective crossings in F2, F3 to enhance effect duration.</li>
+						<li>Cloning for consistency in flavor and effects.</li>
+						<li>Regular tests for THC (>22%) and lasting effect.</li>
+					</ul>
+					<p><strong>Target Competitions:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Spannabis Champions Cup (Month 24) — Showcasing the enhanced
+							Sativa effects.
+						</li>
+						<li>
+							Highlife Cup (Year 3) — Final test of the stabilized variety.
+						</li>
+					</ul>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Yellow Submarine (Yellow Flowers, Banana Flavor)
+					</h3>
+
+					<p><strong>Objectives:</strong></p>
+					<ul class="list-disc p-2">
+						<li>First Indica with <strong>yellow flowers</strong>.</li>
+						<li>Distinct banana flavor, sweet and creamy.</li>
+						<li>
+							Relaxing body effect with potent relaxation (Indica-dominant
+							>80%).
+						</li>
+					</ul>
+
+					<p class="pb-2">
+						<strong>Initial Cross:</strong> Hokkaido Hemp x Banana Kush
+						(fruit-flavored Indica).
+					</p>
+					<p><strong>Genetic Stabilization:</strong></p>
+					<ul class="list-disc p-2">
+						<li>Selecting phenotypes with prominent yellow pistils.</li>
+						<li>
+							Intensive cloning to secure yellow flower and banana flavor
+							traits.
+						</li>
+						<li>
+							Flavor, potency tests (THC >23%), and terpenes (banana, fruity).
+						</li>
+					</ul>
+					<p><strong>Target Competitions:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Emerald Cup (Month 22) — Presentation of the first yellow Indica.
+						</li>
+						<li>
+							High Times Cannabis Cup (Year 3) — Final stabilized variety
+							presentation.
+						</li>
+					</ul>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Big 4 (Hybrid of the 4 Most Famous Strains)
+					</h3>
+
+					<p><strong>Objectives:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Blend the legendary traits of
+							<strong>OG Kush, Sour Diesel, White Widow, and Blue Dream</strong
+							>.
+						</li>
+						<li>
+							Balanced effects: Body relaxation with mild mental stimulation.
+						</li>
+						<li>
+							Complex flavor: Mix of woody, diesel, fruity, and sweet notes.
+						</li>
+						<li>High resin production.</li>
+					</ul>
+
+					<p class="pb-2"><strong>Initial Cross:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							OG Kush x Sour Diesel (Hybrid 1 - Energizing and relaxing effects,
+							woody and diesel flavor).
+						</li>
+						<li>
+							White Widow x Blue Dream (Hybrid 2 - Balanced effect, sweet and
+							floral flavor).
+						</li>
+						<li>Cross of both hybrids to obtain Big 4.</li>
+					</ul>
+					<p><strong>Genetic Stabilization:</strong></p>
+					<ul class="list-disc p-2">
+						<li>Intensive cloning to ensure balanced traits.</li>
+						<li>Regular tests to adjust terpene profile and overall effect.</li>
+						<li>Genetic marker-assisted selection (if available).</li>
+					</ul>
+					<p><strong>Target Competitions:</strong></p>
+					<ul class="list-disc p-2">
+						<li>
+							Spannabis Champions Cup (Month 24) — First presentation with
+							distinct traits.
+						</li>
+						<li>
+							Highlife Cup (Year 3) — Final competition for assessing overall
+							stability.
+						</li>
+					</ul>
+
+					<h2 class="mt-4 text-lg font-semibold">
+						2. Competition Submission: Presentation Dossier
+					</h2>
+
+					<p>
+						Each competition submission should include the following sections:
+					</p>
+
+					<ol class="list-disc p-2">
+						<li><strong>Variety Name & General Description</strong></li>
+						<li>
+							<strong>Genetic Lineage Details:</strong> Parents and successive
+							crosses.
+						</li>
+						<li>
+							<strong>Selection Objectives:</strong> Effects, appearance, and
+							flavor goals.
+						</li>
+						<li>
+							<strong>Cannabinoid Profile:</strong> THC, CBD, CBG levels (if
+							relevant).
+						</li>
+						<li><strong>Terpene Profile:</strong> Dominant terpenes.</li>
+						<li>
+							<strong>Photos:</strong> Of plants, clones, and dried flowers.
+						</li>
+						<li><strong>Laboratory Test Information:</strong> If available.</li>
+						<li>
+							<strong>Attractive Visual Presentation:</strong> Packaging and
+							logos, if needed.
+						</li>
+					</ol>
+
+					<h2 class="mt-4 text-lg font-semibold">
+						3. Laboratory Protocol (Detailed Step-by-Step)
+					</h2>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Phase 1: Initial Cross & Cultivation (Months 1-4)
+					</h3>
+					<ol class="list-disc p-2">
+						<li>
+							<strong>Germination:</strong> Grow each selected variety
+							separately.
+						</li>
+						<li>
+							<strong>Controlled Environment:</strong> 24°C, 70% humidity, 18
+							hours/day light cycle.
+						</li>
+						<li>
+							<strong>Manual Pollination:</strong> Controlled pollination using
+							plastic bags to ensure precise crossbreeding.
+						</li>
+						<li>
+							<strong>F1 Seed Production:</strong> Grow F1 seeds for further
+							selection.
+						</li>
+					</ol>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Phase 2: Preliminary Selection & Cloning (Months 5-8)
+					</h3>
+					<ol class="list-disc p-2">
+						<li>
+							<strong>F1 Germination:</strong> Germinate a large batch (~100
+							seeds per variety) to maximize the discovery of desirable
+							phenotypes.
+						</li>
+						<li>
+							<strong>Early Growth in Hydroponics:</strong> Fast-growing setups
+							to observe early traits.
+						</li>
+						<li>
+							<strong>Phenotype Selection:</strong> Assess vigor, appearance,
+							odor, and growth characteristics. Early cannabinoid and terpene
+							testing.
+						</li>
+						<li>
+							<strong>Cloning:</strong> Take clones from selected plants (3
+							clones per plant). Maintain clones in a cloning chamber (24°C, 80%
+							humidity, low light 18h/day).
+						</li>
+					</ol>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Phase 3: Genetic Stabilization (Months 9-18)
+					</h3>
+					<ol class="list-disc p-2">
+						<li>
+							<strong>Selective Crossings (F2):</strong> Cross selected clones
+							to enhance desired traits.
+						</li>
+						<li>
+							<strong>F3 Generation Stabilization:</strong> Continue crossings
+							to stabilize desired characteristics. Clone plants for
+							consistency.
+						</li>
+						<li>
+							<strong>Regular Testing:</strong> Monitor cannabinoid levels and
+							terpene profiles.
+						</li>
+					</ol>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Phase 4: Final Testing & Cloning (Months 19-24)
+					</h3>
+					<ol class="list-disc p-2">
+						<li>
+							<strong>Testing in Real Conditions:</strong> Grow the plants both
+							indoors and outdoors to assess their stability in various
+							environments.
+						</li>
+						<li>
+							<strong>Mass Cloning:</strong> Clone the best-performing plants to
+							secure genetic consistency.
+						</li>
+						<li>
+							<strong>Final Analysis:</strong> Confirm desired traits and ensure
+							stability before competition submission.
+						</li>
+					</ol>
+
+					<h3 class="mt-2 text-lg font-semibold">
+						Phase 5: Competition Preparation (Months 21-36)
+					</h3>
+					<ol class="list-disc p-2">
+						<li>
+							<strong>Clone Selection:</strong> Choose the best clones for
+							competition submission.
+						</li>
+						<li>
+							<strong>Sample Preparation:</strong> Drying, curing, and vacuum
+							packing the samples.
+						</li>
+						<li>
+							<strong>Competition Submission:</strong> Submit your varieties to
+							competitions like High Times Cannabis Cup, Emerald Cup, Spannabis,
+							etc.
+						</li>
+					</ol>
+				</div>
+			</section>
+		</main>
+
+		<footer class="bg-gray-800 text-center p-5">
+			<p>&copy; 2025 Green Synapse. All rights reserved.</p>
+			<p>
+				<a
+					href="https://github.com/christophe77/green-synapse"
+					class="text-green-500 hover:underline"
+					>Github</a
+				>
+				|
+				<a
+					href="https://www.linkedin.com/in/christophe-bellec-3b5518291/"
+					class="text-green-500 hover:underline"
+					>Contact</a
+				>
+			</p>
+		</footer>
+	</body>
+</html>

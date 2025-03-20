@@ -3,19 +3,20 @@
 	"version": "1.0.0",
 	"private": true,
 	"workspaces": [
-		"packages/*",
-		"web/*"
+		"packages/*"
 	],
 	"scripts": {
 		"build": "pnpm build:all",
-		"build:all": "pnpm --filter @green-synapse/shared build && pnpm --filter @green-synapse/queryai build && pnpm --filter @green-synapse/data build && pnpm --filter @green-synapse/web-components build && pnpm --filter @green-synapse/api build && pnpm --filter @green-synapse/server build",
+		"build:all": "pnpm --filter @green-synapse/shared build && pnpm --filter @green-synapse/queryai build && pnpm --filter @green-synapse/data build && pnpm --filter @green-synapse/web-components build && pnpm --filter @green-synapse/api build && pnpm --filter @green-synapse/server build && pnpm --filter @green-synapse/pwa build",
 		"dev": "pnpm dev:all",
-		"dev:all": "concurrently \"pnpm --filter @green-synapse/api dev\" \"pnpm --filter @green-synapse/server dev\" \"pnpm --filter @green-synapse/web dev\"",
+		"dev:all": "concurrently \"pnpm --filter @green-synapse/server dev\" \"pnpm --filter @green-synapse/api dev\"",
 		"start": "pnpm start:all",
-		"start:all": "pnpm --filter @green-synapse/api start --filter @green-synapse/server start"
+		"start:all": "concurrently \"pnpm --filter @green-synapse/server start\" \"pnpm --filter @green-synapse/api start\""
 	},
 	"devDependencies": {
+		"@types/node": "^22.13.10",
 		"concurrently": "^9.1.2",
 		"typescript": "^5.3.3"
-	}
+	},
+	"packageManager": "pnpm@10.6.5+sha256.47c8bca42b4b48534b5b1b28d573c506773937b02f68e52992fbd8269131c5c8"
 }

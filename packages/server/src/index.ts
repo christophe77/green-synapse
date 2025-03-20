@@ -49,29 +49,18 @@ app.use('/web-components', express.static(path.join(rootDir, 'packages/web-compo
 }));
 
 // Servir les fichiers de la page web
-app.use(express.static(path.join(rootDir, 'web')));
+app.use("/", express.static(path.join(rootDir, 'packages/website')));
 
 // Route par défaut pour servir la page d'accueil
 app.get('/', (req, res) => {
-  const homePagePath = path.join(rootDir, 'web/pages/home/index.html');
+  const homePagePath = path.join(rootDir, '/packages/website/index.html');
   console.log('Serving home page from:', homePagePath);
   res.sendFile(homePagePath);
 });
 
-// Route pour l'API
-app.post('/api/chat', async (req, res) => {
-  try {
-    const { message } = req.body;
-    // TODO: Implémenter la logique de l'API
-    res.json({ response: `Received: ${message}` });
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
-
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+	console.log(`Server smoking on pot ${port}`);
+  console.log('Serving static files from:', path.join(rootDir, 'packages/website'));
   console.log('Web components directory:', path.join(rootDir, 'packages/web-components/dist'));
   console.log('Web components URL:', `http://localhost:${port}/web-components/index.js`);
-}); 
+});

@@ -6,24 +6,18 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script type="module" src="/web-components/index.js"></script>
 		<title>Green Synapse</title>
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/pages/home/assets/favicon.svg"
-		/>
+		<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cannabis:wght@400;700&family=Roboto:wght@400;500;700&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="/pages/home/index.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/index.css" />
 	</head>
 	<body>
 		<header>
-			<img
-				src="/pages/home/assets/logo.svg"
-				alt="Green Synapse Logo"
-				class="logo"
-			/>
+			<img src="/assets/logo.svg" alt="Green Synapse Logo" class="logo" />
 			<h1 id="title">Green Synapse</h1>
 		</header>
 		<section>
@@ -35,19 +29,29 @@
 				information you need.<br />
 				Based on a Mistral-based LLM together with specialized local documents,
 				we can build usefull tools for cannabis-related business.<br />
+			</p>
+			<p id="description">
 				<b>Exemples of use cases :</b><br />
+				<span>- Write blog posts</span><br />
+				<span>- Write descriptions for your products</span><br />
+				<span>- Reply user comments on product pages</span><br />
+				<span>- Build a shopping assistant for your online shop</span><br />
+				<span>- Build a selling assistant for your affiliates</span><br />
+				<span>- Define a cross breeding logic to produce a specific strain</span
+				><br />
 				<span
 					>- Predict a common winning pattern for the cannabis cup awards</span
-				><br />
-				<span>- Build a shopping assistant on your online shop</span><br />
-				<span>- Define a cross breeding logic to produce a specific strain</span
 				><br />
 			</p>
 		</section>
 		<section>
 			<p id="syn">
-				Our first project is Syn, an AI Assistant you can query for specific
-				cannabis informations.<br />
+				The first project is called Syn, an AI Assistant you can query for
+				specific cannabis informations.<br />
+				Syn can be styled to fit your brand, and can be deployed on your own
+				server or cloud.<br />
+				It can be edited to include an affiliate id and be used by your
+				affiliates.
 			</p>
 			<ask-syn></ask-syn>
 		</section>

@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"private": true,
 	"main": "dist/index.js",
-	"types": "index.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"start": "ts-node index.ts",
 		"build": "tsc",

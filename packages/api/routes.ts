@@ -22,6 +22,7 @@ router.post('/ask', async (req: Request, res: Response) => {
 			messages: aiResponse.messages,
 		});
 	} catch (error) {
+		console.error(error)
 		return res.status(500).json({ error: "Erreur lors de la requête à l'IA" });
 	}
 });

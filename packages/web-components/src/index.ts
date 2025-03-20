@@ -1,4 +1,4 @@
 import { AskSyn } from './ask-syn.js';
+import { GrowingSyn } from './growing-syn.js';
 
-// Exporter le composant pour une utilisation en tant que module
-export { AskSyn }; 
+export { AskSyn, GrowingSyn }; 
