@@ -1,13 +1,23 @@
-import ask from './ask';
-import { addTextToVectorStore, searchSimilarTextInVectorStore } from './embed';
+import ask from './ask.js';
+import {
+	addTextToVectorStore,
+	searchSimilarTextInVectorStore,
+} from './embed.js';
 
-export default async function queryAI() {
+export interface QueryAI {
+	ask: (
+		question: string,
+		history: any,
+	) => Promise<string | { response: string | null; messages: any[] }>;
+	addTextToVectorStore: (id: string, text: string) => Promise<void>;
+	searchSimilarTextInVectorStore: (query: string) => Promise<any>;
+}
+
+export default function queryAI(): QueryAI {
 	return {
-		ask: (question: string, history: any) => ask(question, history),
-		addTextToVectorStore: (id: string, text: string) =>
-			addTextToVectorStore(id, text),
-		searchSimilarTextInVectorStore: (query: string) =>
+		ask: (question, history) => ask(question, history),
+		addTextToVectorStore: (id, text) => addTextToVectorStore(id, text),
+		searchSimilarTextInVectorStore: (query) =>
 			searchSimilarTextInVectorStore(query),
 	};
 }
-

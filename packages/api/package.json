@@ -3,12 +3,11 @@
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
-		"start": "ts-node index.ts",
+		"start": "cd dist && node index.js",
 		"build": "tsc",
-		"dev": "ts-node-dev --respawn index.ts"
+		"dev": "cd src && ts-node-dev --respawn index.ts"
 	},
 	"dependencies": {
-		"@green-synapse/data": "workspace:*",
 		"@green-synapse/queryai": "workspace:*",
 		"cors": "^2.8.5",
 		"dotenv": "^16.4.7",

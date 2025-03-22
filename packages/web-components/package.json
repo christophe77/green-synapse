@@ -15,7 +15,8 @@
 	"dependencies": {
 		"@green-synapse/shared": "workspace:*",
 		"lit": "^3.1.2",
-		"marked": "^15.0.7"
+		"marked": "^15.0.7",
+		"socket.io-client": "^4.8.1"
 	},
 	"devDependencies": {
 		"typescript": "^5.3.3",

@@ -1,4 +1,4 @@
-import { createMistralInstance } from './common';
+import { createMistralInstance } from './common.js';
 
 export type Message = {
 	role: 'system' | 'user' | 'assistant' | 'tool';

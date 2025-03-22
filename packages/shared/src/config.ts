@@ -1,7 +1,4 @@
-export interface Config {
-  apiUrl: string;
-  environment: 'development' | 'production';
-}
+import { Config } from "./types.js";
 
 const getEnvironment = () => {
   if (typeof window !== 'undefined') {
@@ -23,9 +20,9 @@ const getApiUrl = (env: string) => {
 };
 
 const environment = getEnvironment();
+
 const config: Config = {
   apiUrl: getApiUrl(environment),
   environment
 };
-
-export default config; 
+export default config;

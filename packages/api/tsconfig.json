@@ -2,14 +2,19 @@
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "./dist",
-		"rootDir": ".",
-		"baseUrl": ".",
+		"rootDir": "./src",
+		"declaration": true,
+		"declarationMap": true,
+		"emitDeclarationOnly": false,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ES2020",
+		"isolatedModules": true,
 		"paths": {
-			"@green-synapse/data/*": ["../data/src/*"],
-			"@green-synapse/queryai/*": ["../queryai/*"]
+			"@green-synapse/queryai/*": ["../queryai/src/*"]
 		}
 	},
-	"include": ["*.ts"],
+	"include": ["src/**/*.ts"],
 	"exclude": ["node_modules", "dist"],
-	"references": [{ "path": "../data" }, { "path": "../queryai" }]
+	"references": [{ "path": "../queryai" }]
 }

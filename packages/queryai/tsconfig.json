@@ -1,9 +1,15 @@
 {
 	"extends": "../../tsconfig.json",
 	"compilerOptions": {
+		"module": "NodeNext",
+		"target": "ESNext",
+		"moduleResolution": "NodeNext",
 		"outDir": "dist",
 		"rootDir": "src",
 		"baseUrl": "",
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"strict": true,
 		"paths": {
 			"@green-synapse/shared": ["../shared/src"],
 			"@green-synapse/shared/*": ["../shared/src/*"],

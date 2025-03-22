@@ -1,4 +1,4 @@
-import { Document, VectorStore, VectorStoreConfig } from './types';
+import { Document, VectorStore, VectorStoreConfig } from './types.js';
 
 export class SimpleVectorStore implements VectorStore {
   private embeddings: number[][] = [];

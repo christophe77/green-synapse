@@ -2,15 +2,15 @@
 	"name": "@green-synapse/queryai",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
-		"start": "ts-node index.ts",
+		"start": "ts-node dist/index.js",
 		"build": "tsc",
-		"dev": "ts-node-dev --respawn index.ts"
+		"dev": "ts-node-dev --loader ts-node/esm src/index.ts"
 	},
 	"dependencies": {
-		"@green-synapse/data": "workspace:*",
 		"@green-synapse/shared": "workspace:*",
 		"@mistralai/mistralai": "^1.5.1",
 		"@xenova/transformers": "^2.15.1",

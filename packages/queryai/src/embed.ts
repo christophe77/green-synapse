@@ -1,8 +1,22 @@
-import { Document, VectorStore, SimpleVectorStore } from '@green-synapse/shared';
-import { createMistralInstance } from './common';
+import { shared } from '@green-synapse/shared';
+import { createMistralInstance } from './common.js';
 import path from 'path';
 
-const vectorStore = new SimpleVectorStore({ dimension: 1024 });
+export interface DocumentToHandle {
+	id: string;
+	text: string;
+	metadata: Record<string, any>;
+}
+
+interface VectorStore {
+	add(documents: DocumentToHandle[], embeddings: number[][]): Promise<void>;
+	search(queryEmbedding: number[], k?: number): Promise<DocumentToHandle[]>;
+	save(path: string): Promise<void>;
+	load(path: string): Promise<void>;
+}
+const { vectorStore } = shared;
+
+const simpleVectorStore = new vectorStore.SimpleVectorStore({ dimension: 1024 });
 const dirname = path.resolve();
 const localDatabasePath = path.join(dirname, 'data/database.json');
 
@@ -48,11 +62,11 @@ async function generateEmbedding(text: string): Promise<number[]> {
 
 export async function searchSimilarTextInVectorStore(
 	query: string,
-): Promise<Document[]> {
+): Promise<DocumentToHandle[]> {
 	try {
-		await vectorStore.load(localDatabasePath);
+		await simpleVectorStore.load(localDatabasePath);
 		const embedding = await generateEmbedding(query);
-		return await vectorStore.search(embedding);
+		return await simpleVectorStore.search(embedding);
 	} catch (error) {
 		console.log('Erreur lors du chargement de ', localDatabasePath, error);
 		return [];
@@ -64,18 +78,18 @@ export async function addTextToVectorStore(
 	text: string,
 ): Promise<void> {
 	try {
-		await vectorStore.load(localDatabasePath);
+		await simpleVectorStore.load(localDatabasePath);
 		const embedding = await generateEmbedding(text);
 		const doc = { id, text, metadata: {} };
-		await vectorStore.add([doc], [embedding]);
-		await vectorStore.save(localDatabasePath);
+		await simpleVectorStore.add([doc], [embedding]);
+		await simpleVectorStore.save(localDatabasePath);
 	} catch (error) {
 		console.log('addTextToVectorStore error :', error);
 	}
 }
 
-export async function embed(documents: Document[]): Promise<VectorStore> {
-	const store = new SimpleVectorStore({ dimension: 768 });
+export async function embed(documents: DocumentToHandle[]): Promise<VectorStore> {
+	const store = new vectorStore.SimpleVectorStore({ dimension: 768 });
 	const embeddings = await Promise.all(
 		documents.map(doc => generateEmbedding(doc.text))
 	);
