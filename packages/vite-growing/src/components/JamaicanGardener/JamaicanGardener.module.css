@@ -1,0 +1,14 @@
+.jamaicanGardenerContainer {
+	display: flex;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.avatarContainer {
+	flex-shrink: 0;
+}
+
+.textContainer {
+	max-width: 600px;
+	line-height: 1.6;
+}

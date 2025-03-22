@@ -1,0 +1,37 @@
+.inputLine {
+	position: relative;
+	width: 100%;
+	max-width: 450px;
+	margin: 0 auto;
+	padding: 10px;
+	font-family: Arial, sans-serif;
+}
+
+.buttonContainer {
+	width: 100%;
+	padding: 12px 16px;
+	text-align: center;
+}
+button {
+	padding: 10px 20px;
+	background-color: #ffeb3b;
+	color: black;
+	font-size: 16px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+	background-color: #fdd835;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:active {
+	background-color: #fbc02d;
+	transform: scale(0.98);
+}

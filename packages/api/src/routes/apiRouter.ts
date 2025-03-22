@@ -8,7 +8,6 @@ apiRouter.post('/ask', async (req: Request, res: Response) => {
 	const { question, messages } = req.body;
 
 	try {
-		// Dynamically import the 'queryAI' ES Module here
 		const { default: queryAI } = await import('@green-synapse/queryai');
 		const aiResponse = await queryAI().ask(question, messages);
 
@@ -18,6 +17,24 @@ apiRouter.post('/ask', async (req: Request, res: Response) => {
 		return res.json({
 			response: aiResponse.response,
 			messages: aiResponse.messages,
+		});
+	} catch (error) {
+		console.error(error);
+		return res.status(500).json({ error: 'Error requesting AI' });
+	}
+});
+apiRouter.post('/growing-advice', async (req: Request, res: Response) => {
+	const { question } = req.body;
+
+	try {
+		const { default: queryAI } = await import('@green-synapse/queryai');
+		const aiResponse = await queryAI().ask(question, []);
+
+		if (typeof aiResponse === 'string') {
+			return res.status(500).json({ error: aiResponse });
+		}
+		return res.json({
+			response: aiResponse.response
 		});
 	} catch (error) {
 		console.error(error);

@@ -1,8 +1,8 @@
 import Header from './components/Header/Header';
-import LiveData from './components/LiveData/LiveData';
-import AiData from './components/AiData/AiData';
+import JamaicanGardener from './components/JamaicanGardener/JamaicanGardener';
 import Footer from './components/Footer/Footer';
 import styles from './App.module.css';
+import StrainForm from './components/StrainForm/StrainForm';
 
 function App() {
 	return (
@@ -11,8 +11,10 @@ function App() {
 				<Header />
 			</div>
 			<div className={styles.middleBlock}>
-				<LiveData />
-				<AiData />
+				<StrainForm />
+			</div>
+			<div className={styles.middleBlock}>
+				<JamaicanGardener />
 			</div>
 			<div className={styles.bottomBlock}>
 				<Footer />

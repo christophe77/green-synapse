@@ -5,29 +5,11 @@
 
 	color-scheme: light dark;
 	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+	background-color: transparent;
+	padding: 10px;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-	margin: 0;
-	padding: 0;
-}
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-body,
-html {
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	overflow: hidden;
-	background-color: #1a3d1a; /* Dark green, like a lush forest */
-	font-family: 'Arial', sans-serif;
-	color: #d4e157; /* Lime green for text */
 }

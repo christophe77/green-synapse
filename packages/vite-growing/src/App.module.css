@@ -1,24 +1,30 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background: linear-gradient(135deg, #1b5e20, #4caf50);
+}
+
+/* Main Container */
 .main {
 	margin: 0;
-	border: 2px solid #388e3c; /* Vibrant cannabis green */
-	height: 100vh;
+	padding: 5px;
 	display: flex;
 	flex-direction: column;
-	background-color: #263e26; /* Darker green for contrast */
-	border-radius: 12px;
-	overflow: hidden;
+	border-radius: 24px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	border: none;
+	transition: all 0.3s ease;
 }
 
 /* Header */
 .topBlock {
-	flex: 0 0 25vh;
-	background-color: #2e7d32; /* Mellow green for the header */
-	border-bottom: 2px solid #388e3c;
+	padding: 10px;
+	flex: 0 0 15vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #d4e157;
-	font-size: 2rem;
+	font-size: 2.5rem;
+	border-bottom: 1px solid #d4e157;
 }
 
 /* Middle Content */
@@ -27,35 +33,85 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	gap: 10px;
+	gap: 20px;
 }
 
-/* Sidebar (Camera) */
-.middleBlock > div:first-child {
-	flex: 1;
-	background-color: #1b5e20;
-	border: 2px solid #388e3c;
-	border-radius: 8px;
-	padding: 10px;
-}
-
-/* Main Content (Weather & Data) */
+/* Sidebar */
+.middleBlock > div:first-child,
 .middleBlock > div:last-child {
 	flex: 1;
-	background-color: #1b5e20;
-	border: 2px solid #388e3c;
-	border-radius: 8px;
-	padding: 10px;
+	border-radius: 16px;
+	padding: 20px;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease;
+}
+
+.middleBlock > div:first-child:hover,
+.middleBlock > div:last-child:hover {
+	transform: scale(1.02);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Footer */
 .bottomBlock {
-	flex: 0 0 25vh;
-	background-color: #2e7d32;
-	border-top: 2px solid #388e3c;
+	padding: 10px;
+	flex: 0 0 15vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #d4e157;
 	font-size: 1.2rem;
+	border-top: 1px solid #d4e157;
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 12px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(
+		0,
+		0,
+		0,
+		0.2
+	); /* Set a transparent dark background for the track */
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(
+		135deg,
+		#ffeb3b,
+		#4caf50
+	); /* Green and yellow gradient thumb */
+	border-radius: 10px;
+	border: 3px solid rgba(0, 0, 0, 0.1); /* Light border around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(
+		135deg,
+		#ffeb3b,
+		#66bb6a
+	); /* Darker green and yellow when hovered */
+}
+
+/* If you want to style the scrollbar for horizontal scroll as well */
+::-webkit-scrollbar-horizontal {
+	height: 12px;
+}
+
+::-webkit-scrollbar-track-horizontal {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb-horizontal {
+	background: linear-gradient(135deg, #ffeb3b, #4caf50);
+	border-radius: 10px;
+	border: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb-horizontal:hover {
+	background: linear-gradient(135deg, #ffeb3b, #66bb6a);
 }

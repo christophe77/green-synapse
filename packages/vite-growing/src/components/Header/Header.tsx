@@ -4,7 +4,7 @@ export default function Header() {
 	return (
 		<div className={styles.headerContainer}>
 			<div>
-				Vite Growing : <i>Haze</i>
+			🍃 Jamaican gardener
 			</div>
 		</div>
 	);

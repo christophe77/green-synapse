@@ -58,6 +58,18 @@ app.get('/', (req, res) => {
   res.sendFile(homePagePath);
 });
 
+// Serve the assets folder specifically
+// Serve assets folder correctly, regardless of how it's accessed
+app.use("/vite-growing/assets", express.static(path.join(rootDir, 'packages/vite-growing/dist/assets')));
+app.use("/assets", express.static(path.join(rootDir, 'packages/vite-growing/dist/assets')));
+app.use("/vite-growing", express.static(path.join(rootDir, 'packages/vite-growing/dist')));
+
+app.get('/vite-growing', (req, res) => {
+  const homePagePath = path.join(rootDir, '/packages/vite-growing/dist/index.html');
+  console.log('Serving home page from:', homePagePath);
+  res.sendFile(homePagePath);
+});
+
 app.listen(port, () => {
 	console.log(`Server smoking on pot ${port}`);
   console.log('Serving static files from:', path.join(rootDir, 'packages/website'));

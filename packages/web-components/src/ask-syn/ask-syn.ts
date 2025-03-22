@@ -1,12 +1,12 @@
 import { LitElement, html, css } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { customElement, property, state } from 'lit/decorators.js';
-import config from '@green-synapse/shared/config';
+import { shared } from '@green-synapse/shared';
 import { marked } from 'marked';
 
 // Utiliser la version synchrone de marked
 marked.setOptions({
-	async: false
+	async: false,
 });
 
 @customElement('ask-syn')
@@ -124,12 +124,15 @@ export class AskSyn extends LitElement {
 			padding: 0;
 		}
 
-		.message-content ul, .message-content ol {
+		.message-content ul,
+		.message-content ol {
 			margin: 0.5em 0;
 			padding-left: 1.5em;
 		}
 
-		.message-content h1, .message-content h2, .message-content h3 {
+		.message-content h1,
+		.message-content h2,
+		.message-content h3 {
 			margin: 1em 0 0.5em;
 		}
 
@@ -159,7 +162,7 @@ export class AskSyn extends LitElement {
 		this.isLoading = true;
 
 		try {
-			const response = await fetch(`${config.apiUrl}/api/ask`, {
+			const response = await fetch(`${shared.config.default.apiUrl}/api/ask`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -197,9 +200,7 @@ export class AskSyn extends LitElement {
 		if (message.role === 'assistant' && message.content) {
 			const htmlContent = marked(message.content) as string;
 			return html`
-				<div class="message-content">
-					${unsafeHTML(htmlContent)}
-				</div>
+				<div class="message-content">${unsafeHTML(htmlContent)}</div>
 			`;
 		}
 		return message.content || '';
